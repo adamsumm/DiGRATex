@@ -3,11 +3,30 @@
 
 \usepackage{titlesec}
 \usepackage[affil-it]{authblk}
-\usepackage[tmargin=1in,bmargin=1in,lmargin=1.5in,rmargin=1.5in]{geometry}
+\usepackage[tmargin=1in,bmargin=1.25in,lmargin=1.5in,rmargin=1.5in]{geometry}
 \usepackage{fontspec}
 \usepackage{fancyhdr}
 \usepackage{etoolbox}
 \usepackage{lmodern}
+\usepackage{tikz}
+\usepackage{textcomp}
+
+
+%Copyright notice
+\setlength{\fboxsep}{0pt}
+\newcommand\copyrighttext{%
+\footnotesize  \addvspace{-46pt}
+\begin{center}
+\textbf{Proceedings of DiGRA 2013: DeFragging Game Studies}
+\end{center}
+  
+  \textcopyright 2013 Authors \& Digital Games Research Association DiGRA. Personal and educational classroom use of
+this paper is allowed, commercial use requires specific permission from the author.}
+\newcommand\copyrightnotice{%
+\begin{tikzpicture}[remember picture,overlay]
+\node[anchor=south,yshift=22pt] at (current page.south) {\fbox{\parbox{\dimexpr\textwidth-\fboxsep-\fboxsep-\fboxsep-\fboxrule\relax}{\copyrighttext}}};
+\end{tikzpicture}%
+}
 
 %% Page Numbering
 \pagestyle{fancy}
@@ -22,6 +41,12 @@
   \fancyhf{} % clear all header and footer fields
   \renewcommand{\headrulewidth}{0pt}
   \renewcommand{\footrulewidth}{0pt}
+
+\titlespacing*\section{0pt}{0pt}{0pt minus 14pt}
+\titlespacing*\subsection{0pt}{0pt}{0pt minus 14pt}
+\titlespacing*\subsubsection{0pt}{0pt}{0pt minus 14pt}
+
+
 }
 
 
@@ -37,12 +62,7 @@
 \titleformat{\subsubsection}
   {\sectionfont\large\slshape}
   {\thesection}{}{}
-%% Section Spacing
-%%\titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
-\titlespacing*\section{0pt}{12pt}{0pt}
-\titlespacing*\subsection{0pt}{12pt}{0pt}
-\titlespacing*\subsubsection{0pt}{12pt}{0pt}
-
+  
 %%Titling
 \makeatletter
 \patchcmd{\@maketitle}{\LARGE \@title}{\fontsize{18}{18}\bfseries\sectionfont\@title}{}{}
@@ -51,3 +71,14 @@
 \renewcommand\Authfont{\Large\bfseries\fontsize{14}{14}}
 \renewcommand\Affilfont{\large\mdseries\fontsize{12}{12}}
 \setlength{\affilsep}{0em}
+
+%No Indents
+\setlength\parindent{0pt}
+
+\setlength{\parskip}{11pt} 
+
+%% Section Spacing
+%%\titlespacing{command}{left spacing}{before spacing}{after spacing}[right]
+\titlespacing*\section{0pt}{0pt}{0pt minus 14pt}
+\titlespacing*\subsection{0pt}{0pt}{0pt minus 14pt}
+\titlespacing*\subsubsection{0pt}{0pt}{0pt minus 14pt}
