@@ -1,7 +1,16 @@
 
 \documentclass[11pt]{article}
 \usepackage{digra}
+ 
+\usepackage[authordate,minnames=1,maxnames=2,maxbibnames=10,minbibnames=7]{biblatex-chicago}
+\AtEveryBibitem{\clearfield{doi}\clearfield{urlyear}\clearfield{urlmonth}\clearfield{urlday}}
+\DeclareFieldFormat[game]{title}{\mkbibemph{#1}}
+\DefineBibliographyStrings{english}{%
+  references = {},
+}
 
+
+\addbibresource{bibliography.bib}
 \title{\addvspace{-2\baselineskip}Your Title goes Here: It May Carry \\
 Over onto a Second Line}
 \author{First Author}
@@ -36,18 +45,17 @@ for the worldwide DiGRA readership.
 \section*{Keywords}
 keyword, keyword, keyword, keyword
 
-\section*{INTRODUCTION}
+\subsection*{INTRODUCTION}
 
 Place your text here. Your text goes here. This format is to be used for submissions that
-are published in the electronic conference proceedings for DiGRA conferences1
+are published in the electronic conference proceedings for DiGRA conferences\endnote{ The format was developed for DiGRA 2011, modified slightly for DiGRA Nordic 2012 and FDG/DiGRA 2016, and may change for future conferences. A slightly different format may apply for the forthcoming DiGRA journal.}
 . The
 same format will be used for conference articles uploaded to the DiGRA library.
 
 In essence, you should format your paper exactly like this document. The easiest way to
 do this is simply to download this template from the conference web site, and replace the
-content with your own material. The template file contains specially formatted styles (e.g.
-Normal, HEADING levels 1 – 3, Reference and Index) that will reduce your work in
-formatting your submission.
+content with your own material.
+
 \section*{PAGE SIZE AND COLUMNS}
 The DiGRA proceedings are formatted for a US Letter format, single column page. The
 size is chosen to allow for on-screen readability. On each page your material (not
@@ -57,26 +65,30 @@ A4 page, use a text area of the same dimensions, again centered. Right margins s
 justified, not ragged. Beware that Word can change these dimensions in unexpected
 ways.
 
-Although this template has been developed for Word, you can use any word processor or
-text system to prepare your submission. Your article should be submitted as a PDF file.
 \section*{SECTIONS}
 Section headings should be typeset in 12-point Arial bold. Section headers should be set
 in all capitals. Leave space corresponding to approximately one line above each heading.
+
+In LaTeX to avoid numbering of sections you have to use $\backslash$section*\{\} instead of $\backslash$section\{\}
 \subsection*{Subsections}
 Headings of subsections should be in 12-point Arial bold with initial letters capitalized.
 (Note: For sub-sections, a word like the or of is not capitalized unless it is the first word
 of the heading.)
+
+In LaTeX to avoid numbering of sections you have to use $\backslash$subsection*\{\} instead of $\backslash$subsection\{\}.
 \subsubsection*{Sub-subsections}
 Headings of sub-subsections should be in 12-point Arial italic, with the first letter
-capitalized. Do not use more than three levels of headings.
+capitalized. Do not use more than three levels of headings. 
+
+In LaTeX to avoid numbering of sections you have to use $\backslash$subsubsection*\{\} instead of $\backslash$subsubsection\{\}
 \section*{BODY TEXT}
 For body text, please use a 11-point Times Roman font or, if this is unavailable, another
-proportional font with serifs, as close as possible in appearance to Times Roman 12-
+proportional font with serifs, as close as possible in appearance to Times Roman 11-
 point. The Press 10-point font available to users of Script is a good substitute for Times
 Roman. If Times Roman is not available, try the font named Computer Modern Roman.
 Please use sans-serif or non-proportional fonts only for special purposes, such as
-headings or source code text. Note that Body Bulletpointlist, Reference are pre-defined
-styles in this template.
+headings or source code text. 
+
 \section*{TITLE AND AUTHORS}
 Your paper’s title, authors and affiliations should run across the full width of the page
 and centered. The title should be in Arial 18-point bold; use Helvetica if Arial is not
@@ -84,8 +96,7 @@ available. Authors’ names should be in Times Roman 14-point bold, and affiliat
 Times Roman 12-point (note that AuthorName, AuthorAddress and FirstAuthorEmail as
 well as LastAuthorEmail are defined Styles in this template file).
 
-To position names and addresses; use a centered tab stop to center all name and address
-text on the page. Place author names and addresses below each other. For multiple
+Place author names and addresses below each other. For multiple
 authors with the same affiliation, place the names at the same line with the address below
 both. For more than three authors, you may have to place some address information in a
 footnote, or in a named section at the end of your paper. Please use full international
@@ -104,41 +115,52 @@ same page as the relevant text (see Figure 1). A figure or table may extend to a
 width of 14 cm (5.5 in.). If possible, the Figure should appear on the same page in which
 it is first referenced.
 
-Captions should be Times New Roman 12-point bold. They should be numbered (e.g.,
+Captions should be Times New Roman 11-point bold. They should be numbered (e.g.,
 “Table 1” or “Figure 2”), centered and placed beneath the figure or table. Please note that
 the words “Figure” and “Table” should be spelled out (e.g., “Figure” rather than “Fig.”)
-wherever they occur.
+wherever they occur.  To do this in LaTeX use $\backslash$ caption*\{\textbf{Table 1}\} instead of  $\backslash$ caption\{\}, i.e. you will need to suppress the normal numbering and do it yourself.
 
 Papers and notes may use color figures, which are included in the page limit. The paper
 may be accompanied by various media files, such as videos, sound clips, and even
 demonstrator games. However, the paper should stand on its own without such media, as
 they may not be available to everyone who reads the paper.
-Male Female Did not Respond
-Digital 43 36 21
-Non-Digital 42 53 5
-Table 1: This is the title for my table, it is justified both left and right, and it is in 12
-points. Try to centre the text of the table as shown. Table content may be set in smaller
+\begin{figure}[h]
+\centering
+\begin{tabular}{| l | c | c | c |}
+\hline
+  & \textbf{Male} & \textbf{Female} & \textbf{Did not Respond} \\
+  \hline
+Digital &43 &36 &21\\
+\hline
+Non-Digital &42 &53 &5 \\
+\hline
+\end{tabular}
+\caption*{\textbf{Table 1}: This is the title for my table, it is justified both left and right, and it is in 12
+points. Try to centre the text of the table as shown. Table content may be set in smaller}
+\end{figure}
 
 \section*{ENDNOTES, BIBLIOGRAPHY AND LUDOGRAPHY}
 \subsection*{Endnotes}
-DiGRA recommends the use of endnotes2 rather than footnotes. These should be placed
+DiGRA recommends the use of endnotes\endnote{This is another example of an endnote.
+} rather than footnotes. These should be placed
 after the body text, but before the Bibliography section and numbered 1, 2, 3 etc.
 Endnotes are also in 12 point Times New Roman.
+
 \subsection*{Citations and References}
 DiGRA uses a simplified version of the Chicago citation system. In running text and
 endnotes, use a verbose parenthesis format (Author last names Publication-year) or
 (Author last names Publication year, Page/Chapter) to indicate your reference. If the
 authors’ name is mentioned in running text, use only the publication year in parenthesis.
-Anderson (1992, 453) may or may not think this is a good idea, but it doesn’t matter since
+ Anderson (1992, 453) \nocite{ethics} may or may not think this is a good idea, but it doesn’t matter since
 this sentence is only included as an example. If a reference has more than two authors
-(Schwartz et al. 1995), use the name of the first author “et al.” in the reference.
+(\cite{schwartz.1995}), use the name of the first author “et al.” in the reference. Unfortunately, due to the way biblatex-chicago works you have to manually paranthesize all citations, e.g. do ($\backslash$cite\{\}) instead of $\backslash$cite\{\}. \nocite{*}
 
 Organize the bibliography alphabetically by last name of the first author. See the
 bibliography towards the end of the template for example formatting of references.
 \subsection*{Game references}
 For games, set the game’s name in italics with initial capitals. On first occurrence in the
-text, include the developer and publication year in parenthesis, e.g. World of Warcraft
-(Blizzard 2004). Depending on the use of the game in the context of the article, you may
+text, include the developer and publication year in parenthesis, e.g. \textit{World of Warcraft}
+\nocite{WoW}. There doesn't seem to be a clear way to cite a game in LaTeX so it is recommended to use the misc type in the bibliography (see the attached bib file for an example) and to do something like $\backslash$textit\{World of Warcraft\} $\backslash$nocite\{WoW\}.  Depending on the use of the game in the context of the article, you may
 also choose to refer to the principal designer(s), creator(s), and so on. Follow this format
 as closely as possible:
 Developer. (Year). Title. [Platform, Version], Publisher, Release City/State and Country:
@@ -204,7 +226,6 @@ the writing style and conventions that successful authors have used. It is parti
 important that you state clearly what you have done, not merely what you plan to do, and
 explain how your work is different from previously published work, i.e., what is the
 unique contribution that your work makes to the field? Please consider what the reader 
--- 6 --
 will learn from your submission, and how they will find your work useful. If you write
 with these questions in mind, your work is more likely to be successful, both in being
 accepted into the conference, and in influencing the work of our field.
@@ -214,10 +235,9 @@ similar template for the CHI conference (Doe and Smith 2011) and the template fr
 DiGRA 2005. Some of the references cited in this paper are included for illustrative
 purposes only. Special thanks to Annika Waern and José Zagal.
 \section*{ENDNOTES}
-\begin{enumerate}
-\item The format was developed for DiGRA 2011, modified slightly for DiGRA Nordic 2012
-and may change for future conferences. A slightly different format may apply for the
-forthcoming DiGRA journal.
-\item This is another example of an endnote.
-\end{enumerate}
+\addvspace{-1\baselineskip} %%I can't find another way to reduce the size of the gap for the end notes
+\theendnotes
+
+\section*{BIBLIOGRAPHY}
+\printbibliography
 \end{document}
