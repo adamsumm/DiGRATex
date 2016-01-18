@@ -8,7 +8,8 @@
 \DefineBibliographyStrings{english}{%
   references = {},
 }
-
+\let\originalcite\cite
+\renewcommand*{\cite}[1]{(\originalcite{#1})}
 
 \addbibresource{bibliography.bib}
 \title{\addvspace{-2\baselineskip}Your Title goes Here: It May Carry \\
@@ -153,7 +154,7 @@ endnotes, use a verbose parenthesis format (Author last names Publication-year) 
 authors’ name is mentioned in running text, use only the publication year in parenthesis.
  Anderson (1992, 453) \nocite{ethics} may or may not think this is a good idea, but it doesn’t matter since
 this sentence is only included as an example. If a reference has more than two authors
-(\cite{schwartz.1995}), use the name of the first author “et al.” in the reference. Unfortunately, due to the way biblatex-chicago works you have to manually paranthesize all citations, e.g. do ($\backslash$cite\{\}) instead of $\backslash$cite\{\}. \nocite{*}
+\cite{schwartz.1995}, use the name of the first author “et al.” in the reference. 
 
 Organize the bibliography alphabetically by last name of the first author. See the
 bibliography towards the end of the template for example formatting of references.
