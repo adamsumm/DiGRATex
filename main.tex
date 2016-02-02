@@ -149,10 +149,12 @@ Endnotes are also in 12 point Times New Roman.
 
 \subsection*{Citations and References}
 DiGRA uses a simplified version of the Chicago citation system. In running text and
-endnotes, use a verbose parenthesis format (Author last names Publication-year) or
-(Author last names Publication year, Page/Chapter) to indicate your reference. If the
-authors’ name is mentioned in running text, use only the publication year in parenthesis.
- Anderson (1992, 453) \nocite{ethics} may or may not think this is a good idea, but it doesn’t matter since
+endnotes, use \textbackslash cite\{key\} to generate a citation in parenthesis format (Author last names Publication-year).
+To include a page or chapter number, use \textbackslash cite[page]\{key\}, producing
+(Author last names Publication year, Page/Chapter). If the
+authors’ name is mentioned in running text, use \textbackslash textcite instead of \textbackslash cite.
+This places the authors' name(s) in the text, and only the publication year in parenthesis.
+\textcite[453]{ethics} may or may not think this is a good idea, but it doesn’t matter since
 this sentence is only included as an example. If a reference has more than two authors
 \cite{schwartz.1995}, use the name of the first author ``et al.'' in the reference. 
 
